@@ -1,0 +1,41 @@
+import Containers.Boiler;
+import Containers.BoilerStates;
+import Containers.Pot;
+import Containers.PotStates;
+import Heaters.BoilerHeater;
+import Heaters.PlateHeater;
+import Sensors.BoilerSensor;
+import Sensors.PlateSensor;
+
+public class CoffeeMaker {
+
+    public CoffeeMaker() {
+
+    }
+
+    public static void main(String[] args) {
+        start();
+    }
+
+    public static void start() {
+        //1.Turn off the button ( TO IMPLEMENT )
+
+        //2.Fill the boiler with water:
+        Boiler boiler = new Boiler(BoilerStates.BOILER_NOT_EMPTY);
+
+        //3.Boiler sensor detect the water , and turn on the heater
+        BoilerHeater heater = new BoilerHeater();
+        String boilerStatus=boiler.getCurrentState();
+        System.out.println("Boiler status: "+boilerStatus);
+        BoilerSensor boilerSensor = new BoilerSensor(boiler);
+        boolean myBoiler = boilerSensor.trigger(boiler.getCurrentState());
+        System.out.println(myBoiler);
+        if(myBoiler){
+            heater.setOn();
+        }else{
+            heater.setOff();
+        }
+
+
+    }
+}
