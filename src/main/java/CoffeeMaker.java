@@ -3,6 +3,7 @@ import Containers.BoilerStates;
 import Containers.Pot;
 import Containers.PotStates;
 import Heaters.BoilerHeater;
+import Heaters.Heater;
 import Heaters.PlateHeater;
 import Listeners.BoilerHeaterListener;
 import Sensors.BoilerSensor;
@@ -30,29 +31,30 @@ public class CoffeeMaker {
         Boiler boiler = new Boiler(BoilerStates.BOILER_NOT_EMPTY);
 
         //3.Boiler sensor detect the water , and turn on the heater
-        BoilerHeater heater = new BoilerHeater();
+        Heater bHeater = new BoilerHeater();
         String boilerStatus=boiler.getCurrentState();
+
         System.out.println("Boiler status: "+boilerStatus);
         BoilerSensor boilerSensor = new BoilerSensor(boiler);
         boolean myBoiler = boilerSensor.trigger(boiler.getCurrentState());
         //System.out.println(myBoiler);
         if(myBoiler){
-            heater.setOn();
+            bHeater.setOn();
         }else{
-            heater.setOff();
+            bHeater.setOff();
         }
-        BoilerHeaterListener boilerListener = new BoilerHeaterListener();
-        boilerListener.start();
-        while(true){
-            System.out.println("Switch for the Boiler");
-            boolean answer;
-            answer=sc.nextBoolean();
-            if(answer){
-                boilerListener.setOn();
-            }else{
-                boilerListener.setOff();
-            }
-        }
+//        BoilerHeaterListener boilerListener = new BoilerHeaterListener();
+//        boilerListener.start();
+//        while(true){
+//            System.out.println("Switch for the Boiler");
+//            boolean answer;
+//            answer=sc.nextBoolean();
+//            if(answer){
+//                boilerListener.setOn();
+//            }else{
+//                boilerListener.setOff();
+//            }
+//        }
 
 
     }

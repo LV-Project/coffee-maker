@@ -1,6 +1,6 @@
 package Heaters;
 
-public class BoilerHeater {
+public class BoilerHeater implements Heater{
 
     private boolean onOff=false;
 
@@ -16,11 +16,7 @@ public class BoilerHeater {
         this.onOff = false;
     }
 
-    public String getStatus() {
-        if(onOff){
-            return "Heating boiler...";
-        } else {
-            return "Heating boiler off";
-        }
-    }
+
+
+
 }
