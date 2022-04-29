@@ -4,8 +4,11 @@ import Containers.Pot;
 import Containers.PotStates;
 import Heaters.BoilerHeater;
 import Heaters.PlateHeater;
+import Listeners.BoilerHeaterListener;
 import Sensors.BoilerSensor;
 import Sensors.PlateSensor;
+
+import java.util.Scanner;
 
 public class CoffeeMaker {
 
@@ -16,6 +19,9 @@ public class CoffeeMaker {
     public static void main(String[] args) {
         start();
     }
+
+    static Scanner sc= new Scanner(System.in);
+
 
     public static void start() {
         //1.Turn off the button ( TO IMPLEMENT )
@@ -29,11 +35,23 @@ public class CoffeeMaker {
         System.out.println("Boiler status: "+boilerStatus);
         BoilerSensor boilerSensor = new BoilerSensor(boiler);
         boolean myBoiler = boilerSensor.trigger(boiler.getCurrentState());
-        System.out.println(myBoiler);
+        //System.out.println(myBoiler);
         if(myBoiler){
             heater.setOn();
         }else{
             heater.setOff();
+        }
+        BoilerHeaterListener boilerListener = new BoilerHeaterListener();
+        boilerListener.start();
+        while(true){
+            System.out.println("Switch for the Boiler");
+            boolean answer;
+            answer=sc.nextBoolean();
+            if(answer){
+                boilerListener.setOn();
+            }else{
+                boilerListener.setOff();
+            }
         }
 
 
