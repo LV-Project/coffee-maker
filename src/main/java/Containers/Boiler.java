@@ -1,17 +1,18 @@
 package Containers;
 
 public class Boiler {
-    String currentState;
+    BoilerStates currentState;
+    //TODO optional! Water Level class to add water to the coffemaker - The boiler will have an instance of the WL class.
 
     public Boiler(BoilerStates currentState){
-        this.currentState = String.valueOf(currentState);
+        this.currentState = currentState;
     }
 
-    public String getCurrentState() {
+    public BoilerStates getCurrentState() {
         return currentState;
     }
 
-    public void setCurrentState(String currentState) {
+    public void setCurrentState(BoilerStates currentState) {
         this.currentState = currentState;
     }
 }

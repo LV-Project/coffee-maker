@@ -23,6 +23,10 @@ public class CoffeeMaker {
 
     static Scanner sc= new Scanner(System.in);
 
+    // TODO MARTIN PAVESIO y KEVIN CARDENAS Implementar interfaz de usuario, imprime en consola el estado de todo el flow y partes del mismo.
+
+    // TODO KEVIN CARDENAS y MARTIN PAVESIO create implementations for the light, button, the pipe, and filter.
+    // TODO Test Unitario en cada step.
 
     public static void start() {
         //1.Turn off the button ( TO IMPLEMENT )
@@ -32,17 +36,29 @@ public class CoffeeMaker {
 
         //3.Boiler sensor detect the water , and turn on the heater
         Heater bHeater = new BoilerHeater();
-        String boilerStatus=boiler.getCurrentState();
+        String boilerStatus = boiler.getCurrentState();
 
-        System.out.println("Boiler status: "+boilerStatus);
+
         BoilerSensor boilerSensor = new BoilerSensor(boiler);
-        boolean myBoiler = boilerSensor.trigger(boiler.getCurrentState());
+
+        boilerSensor.trigger();
+
+
+        BoilerHeaterListener boilerListener = new BoilerHeaterListener(bHeater);
+        boilerListener.start();
+
+        boiler.setCurrentState(BoilerStates.BOILER_EMPTY);
+
+
+
         //System.out.println(myBoiler);
-        if(myBoiler){
-            bHeater.setOn();
-        }else{
-            bHeater.setOff();
-        }
+//        if(myBoiler){
+//            bHeater.setOn();
+//            System.out.println(bHeater.getOnOff());
+//        }else{
+//            bHeater.setOff();
+//            System.out.println(bHeater.getOnOff());
+//        }
 //        BoilerHeaterListener boilerListener = new BoilerHeaterListener();
 //        boilerListener.start();
 //        while(true){
