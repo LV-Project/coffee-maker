@@ -1,12 +1,11 @@
 package UserInterface.Implementation;
 
 import Components.Implementation.ComponentManager;
-import Components.Interfaces.Component;
 import UserInterface.IUserInterface;
 import UserInterface.Model.Menu;
 
 import java.util.List;
-import java.util.Locale;
+
 
 public class UserInterfaceImp implements IUserInterface {
     private ComponentManager _componentManager;
@@ -22,10 +21,9 @@ public class UserInterfaceImp implements IUserInterface {
     public void menu() {
         System.out.println("Welcome to the Coffee Maker!");
         System.out.println("Please set up the machine");
-        Command command = _menuManager.getMenus().stream().filter(a->a.getName().equals("filter")).findFirst()
+        Command command = _menuManager.getMenus().stream().filter(a->a.getName().equals("SetUpFilter")).findFirst()
                 .orElseThrow(()->new RuntimeException("Command not found")).getCommand();
         command.execute();
-
 
     }
 
@@ -37,5 +35,14 @@ public class UserInterfaceImp implements IUserInterface {
     @Override
     public ComponentManager getComponentManager() {
         return _componentManager;
+    }
+
+    @Override
+    public void showOptionsForTheUser() {
+        List<Menu> menuList= _menuManager.getMenus();
+        System.out.println("This are the options: ");
+        for (Menu varmenu:menuList) {
+           System.out.println(varmenu.getCode()+"");
+        }
     }
 }

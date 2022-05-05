@@ -6,10 +6,10 @@ import UserInterface.Implementation.Command;
 
 import java.util.List;
 
-public class CommandFilter implements Command {
+public class CommandSetUpFilter implements Command {
     private IUserInterface _userInterface;
 
-    public CommandFilter(IUserInterface userInterface) {
+    public CommandSetUpFilter(IUserInterface userInterface) {
         _userInterface = userInterface;
     }
 
@@ -20,7 +20,7 @@ public class CommandFilter implements Command {
         input=input.toUpperCase();
         if(input.equals("")||input.equals("Y")||input.equals("YES")){
             List<Component> var = _userInterface.getComponentManager().getComponents();
-            var.stream().filter(a->a.getName().equals("Filter")).findFirst().orElse(null).setUp();
+            var.stream().filter(a->a.getName().equals("Filter")).findFirst().orElse(null).activate();
         }
     }
 

@@ -3,8 +3,9 @@ package Components.Implementation;
 import Components.Interfaces.Component;
 
 public class ComponentIndicatorLight implements Component {
-    private boolean state;
+
     private String name;
+    private boolean setup=false;
 
     public ComponentIndicatorLight(String name) {
         this.name = name;
@@ -19,8 +20,22 @@ public class ComponentIndicatorLight implements Component {
         return "Turning light on\nCoffee is Ready!!!";
     }
     @Override
-    public void setUp() {
+    public void activate() {
         System.out.println("Setting up the "+name);
+    }
+
+    @Override
+    public void deactivate() {
+        System.out.println("Disassembling "+name);
+        setSetup(false);
+    }
+    @Override
+    public boolean isSetup() {
+        return setup;
+    }
+
+    public void setSetup(boolean setup) {
+        this.setup = setup;
     }
 }
 

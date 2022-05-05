@@ -26,4 +26,5 @@ public class MenuManager {
     public List<Menu> build(){
         return menus;
     }
+
 }

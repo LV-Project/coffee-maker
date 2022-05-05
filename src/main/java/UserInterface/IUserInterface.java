@@ -7,5 +7,6 @@ public interface IUserInterface {
     void menu();
     FastReader getFastReader();
     ComponentManager getComponentManager();
+    void showOptionsForTheUser();
 
 }
