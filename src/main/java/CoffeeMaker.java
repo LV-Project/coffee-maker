@@ -5,14 +5,11 @@ import Switchers.BoilerHeater;
 import Switchers.Switch;
 import Listeners.BoilerHeaterListener;
 import Sensors.BoilerSensor;
-<<<<<<< HEAD
-=======
 import Sensors.PlateSensor;
 import UserInterface.IUserInterface;
 import UserInterface.Implementation.Commands.CommandManager;
 import UserInterface.Implementation.MenuManager;
 import UserInterface.Implementation.UserInterfaceImp;
->>>>>>> origin/MergeMP
 
 import java.util.Scanner;
 
