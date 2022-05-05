@@ -11,14 +11,59 @@ import Sensors.PlateSensor;
 
 import java.util.Scanner;
 
-public class CoffeeMaker {
+public class CoffeeMaker extends Thread {
 
-    public CoffeeMaker() {
 
-    }
 
-    public static void main(String[] args) {
-        start();
+    public static void main(String[] args)   {
+        //1.Turn off the button ( TO IMPLEMENT )
+
+        //2.Fill the boiler with water:
+        Boiler boiler = new Boiler(BoilerStates.BOILER_NOT_EMPTY);
+
+        //3.Boiler sensor detect the water , and turn on the heater
+        Heater bHeater = new BoilerHeater();
+        String boilerStatus = String.valueOf(boiler.getCurrentState());
+
+
+        BoilerSensor boilerSensor = new BoilerSensor(boiler, bHeater);
+
+        boilerSensor.trigger();
+
+
+        BoilerHeaterListener boilerListener = new BoilerHeaterListener(bHeater);
+        boilerListener.start();
+
+        for (int i = 0; i<2;i++){
+            System.out.println(i);
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e){
+            }
+
+        }
+        bHeater.setOff();
+        for (int i = 0; i<2;i++){
+            System.out.println(i);
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e){
+            }
+
+        }
+        bHeater.setOn();
+        for (int i = 0; i<2;i++){
+            System.out.println(i);
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e){
+            }
+            bHeater.setOff();
+        }
+
+
+
+
     }
 
     static Scanner sc= new Scanner(System.in);
@@ -28,26 +73,9 @@ public class CoffeeMaker {
     // TODO KEVIN CARDENAS y MARTIN PAVESIO create implementations for the light, button, the pipe, and filter.
     // TODO Test Unitario en cada step.
 
-    public static void start() {
-        //1.Turn off the button ( TO IMPLEMENT )
+    public static void stasrt() {
 
-        //2.Fill the boiler with water:
-        Boiler boiler = new Boiler(BoilerStates.BOILER_NOT_EMPTY);
-
-        //3.Boiler sensor detect the water , and turn on the heater
-        Heater bHeater = new BoilerHeater();
-        String boilerStatus = boiler.getCurrentState();
-
-
-        BoilerSensor boilerSensor = new BoilerSensor(boiler);
-
-        boilerSensor.trigger();
-
-
-        BoilerHeaterListener boilerListener = new BoilerHeaterListener(bHeater);
-        boilerListener.start();
-
-        boiler.setCurrentState(BoilerStates.BOILER_EMPTY);
+        //boiler.setCurrentState(BoilerStates.BOILER_EMPTY);
 
 
 
