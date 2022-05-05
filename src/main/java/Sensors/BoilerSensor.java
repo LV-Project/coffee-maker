@@ -13,7 +13,7 @@ public class BoilerSensor implements Sensor {
     Heater boilerHeater;
 
     // TODO CESAR y LUIS BECERRA implementar water level modelo que tendra un water sensor, que pregunta al boiler la media del agua
-    // TODO CESAR y LUIS BECERRA TODO implementar valvula de presion de acuerdo de acuerdo al estado brindado por el plate sensor del pot
+    // TODO CESAR y LUIS BECERRA TODO implementar valvula de presion de acuerdo al estado brindado por el plate sensor del pot
 
 
     public BoilerSensor(Boiler boiler, Heater boilerHeater) {
