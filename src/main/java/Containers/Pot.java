@@ -2,17 +2,17 @@ package Containers;
 
 public class Pot{
 
-    String currentState;
+    PotStates currentState;
 
-    public Pot(String currentState){
+    public Pot(PotStates currentState){
         this.currentState = currentState;
     }
 
-    public String getCurrentState() {
+    public PotStates getCurrentState() {
         return currentState;
     }
 
-    public void setCurrentState(String currentState) {
+    public void setCurrentState(PotStates currentState) {
         this.currentState = currentState;
     }
 }

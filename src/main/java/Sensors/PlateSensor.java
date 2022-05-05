@@ -2,33 +2,35 @@ package Sensors;
 
 import Containers.Pot;
 import Containers.PotStates;
+import Heaters.Heater;
+import Heaters.ValveSwitch;
 
 public class PlateSensor implements Sensor {
 
-    PotStates potStates;
+
     Pot pot;
     String status = "";
+    Heater plateH;
+    Heater valve;
 
-
-    public PlateSensor(Pot pot, PotStates potStates) {
+    public PlateSensor(Pot pot, Heater plateH, Heater valve) {
         this.pot = pot;
-        this.potStates = potStates;
+        this.plateH = plateH;
+        this.valve=valve;
     }
-
-    boolean trigger() {
+    @Override
+    public void trigger() {
         if (pot.getCurrentState().equals(PotStates.POT_EMPTY)) {
             status = "Plate Sensor: Pot is empty";
-            return true;
-        } else if (pot.getCurrentState()==(PotStates.POT_NOT_EMPTY).toString()||pot.getCurrentState()==(PotStates.WARMER_EMPTY).toString()) {
+            plateH.setOff();
+            valve.setOff();
+
+        } else if (pot.getCurrentState()==(PotStates.POT_NOT_EMPTY)||pot.getCurrentState()==(PotStates.WARMER_EMPTY)) {
             status = "Plate Sensor: Pot is not empty";
-            return false;
+            plateH.setOn();
+            valve.setOn();
         }
-
-    return false;
     }
 
-    @Override
-    public boolean status() {
-        return trigger();
-    }
+
 }

@@ -21,7 +21,7 @@ public class BoilerSensor implements Sensor {
         this. boilerHeater = boilerHeater;
         //this.boilerStates = boilerStates;
     }
-
+    @Override
     public void trigger() {
         if(boiler.getCurrentState().equals(boilerStates.BOILER_NOT_EMPTY)) {
             boilerHeater.setOn();
@@ -40,9 +40,6 @@ public class BoilerSensor implements Sensor {
 //        return false;
     }
 
-    @Override
-    public boolean status() {
-        return false;
-    }
+
 }
 

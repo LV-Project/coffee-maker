@@ -1,23 +1,10 @@
-2022-05-05 00:33:48.001 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:33:48.001 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:33:48.001 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:33:48.002 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:33:48.002 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:33:48.003 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:40:25.956 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:41:07.545 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:41:09.570 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:41:11.685 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:41:12.710 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:42:40.914 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:42:43.300 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:42:45.424 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:42:46.442 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:47:04.235 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:47:06.257 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:47:08.262 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:47:09.265 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:47:33.582 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:47:36.595 INFO Thread-0 admin - Boiler Heater OFF
-2022-05-05 00:47:38.612 INFO Thread-0 admin - Boiler Heater ON
-2022-05-05 00:47:39.614 INFO Thread-0 admin - Boiler Heater OFF
+2022-05-05 10:43:23.331 INFO Thread-0 admin - Plate Heater OFF
+2022-05-05 10:43:23.331 INFO Thread-1 admin - Boiler Heater ON
+2022-05-05 10:43:23.332 INFO Thread-2 admin - Valve is open, no coffee is coming
+2022-05-05 10:43:23.332 INFO Thread-1 admin - Boiler Heater OFF
+2022-05-05 10:43:26.185 INFO Thread-1 admin - Boiler Heater ON
+2022-05-05 10:43:26.258 INFO Thread-0 admin - Plate Heater ON
+2022-05-05 10:43:26.319 INFO Thread-2 admin - Valve is close, coffee is coming
+2022-05-05 10:43:28.087 INFO Thread-1 admin - Boiler Heater OFF
+2022-05-05 10:43:28.212 INFO Thread-0 admin - Plate Heater OFF
+2022-05-05 10:43:28.311 INFO Thread-2 admin - Valve is open, no coffee is coming

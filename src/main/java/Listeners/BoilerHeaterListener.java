@@ -10,23 +10,25 @@ public class BoilerHeaterListener extends Thread{
     private boolean on =false;
     private boolean off =false;
 
+
     Heater bH;
+    //intancia del botton
+
     private static Logger loggerFile = Logger.getLogger("admin");
     //private static Logger loggerReceipt = Logger.getLogger("file");
 
     public BoilerHeaterListener (Heater bH){
         this.bH = bH;
+        //this.startButton=startbutton
     }
 
     @Override
     public void run(){
-        // encendido y true
+        //while argument depends on the start button status
         while(true) {
-            //encendido -  true
-//            System.out.println("get ONOFF es : "+bH.getOnOff());
-//            System.out.println("ON esta: " + on);
-//            System.out.println("OFF esta: " + off);
+
             if (bH.getOnOff() && !on) {
+
                 loggerFile.info("Boiler Heater ON");
                 System.out.println("Heating Boiler....");
                 on = true;
@@ -34,6 +36,7 @@ public class BoilerHeaterListener extends Thread{
             }
 
             if (!bH.getOnOff() && !off) {
+
                 loggerFile.info("Boiler Heater OFF");
                 System.out.println("Heating Boiler Off!");
                 off = true;
@@ -41,11 +44,12 @@ public class BoilerHeaterListener extends Thread{
             }
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(950);
                 } catch(InterruptedException e){
                 }
 
         }
     }
+
 
 }
