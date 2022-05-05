@@ -1,6 +1,6 @@
-package Heaters;
+package Switchers;
 
-public class BoilerHeater implements Heater{
+public class BoilerHeater implements Switch {
 
     private boolean onOff=false;
 

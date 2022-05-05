@@ -1,16 +1,15 @@
 package Listeners;
 
-import Heaters.BoilerHeater;
-import Heaters.Heater;
+import Switchers.Switch;
 
 public class BoilerHeaterListener extends Thread{
     // TODO MARTIN GONZALES y LEONARDO VILLALBA una clase que escuche el estado del heater/boiler (todo lo q cambie su estado) y printee en el momento que cambie en un archivo logger.
     // TODO MARTIN GONZALES y LEONARDO VILLALBA implementar un listener a la valvula
     private boolean on=false;
     private boolean off=false;
-    Heater bH;
+    Switch bH;
 
-    public BoilerHeaterListener (Heater bH){
+    public BoilerHeaterListener (Switch bH){
         this.bH = bH;
     }
 //    public boolean getOnOff() {

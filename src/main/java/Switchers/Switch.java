@@ -1,6 +1,6 @@
-package Heaters;
+package Switchers;
 
-public interface Heater {
+public interface Switch {
 
     void setOn();
     public boolean getOnOff();

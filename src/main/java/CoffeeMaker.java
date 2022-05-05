@@ -1,13 +1,9 @@
 import Containers.Boiler;
 import Containers.BoilerStates;
-import Containers.Pot;
-import Containers.PotStates;
-import Heaters.BoilerHeater;
-import Heaters.Heater;
-import Heaters.PlateHeater;
+import Switchers.BoilerHeater;
+import Switchers.Switch;
 import Listeners.BoilerHeaterListener;
 import Sensors.BoilerSensor;
-import Sensors.PlateSensor;
 
 import java.util.Scanner;
 
@@ -35,7 +31,7 @@ public class CoffeeMaker {
         Boiler boiler = new Boiler(BoilerStates.BOILER_NOT_EMPTY);
 
         //3.Boiler sensor detect the water , and turn on the heater
-        Heater bHeater = new BoilerHeater();
+        Switch bSwitch = new BoilerHeater();
         String boilerStatus = boiler.getCurrentState();
 
 
@@ -44,7 +40,7 @@ public class CoffeeMaker {
         boilerSensor.trigger();
 
 
-        BoilerHeaterListener boilerListener = new BoilerHeaterListener(bHeater);
+        BoilerHeaterListener boilerListener = new BoilerHeaterListener(bSwitch);
         boilerListener.start();
 
         boiler.setCurrentState(BoilerStates.BOILER_EMPTY);

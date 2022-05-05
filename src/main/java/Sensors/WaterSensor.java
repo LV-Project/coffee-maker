@@ -17,5 +17,11 @@ public class WaterSensor {
         return waterLevel.getCurrentLevel();
     }
 
+    public void addWaterCups(int quantity){
+        //while(){
+
+        //}
+    }
+
  }
 

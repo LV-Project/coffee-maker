@@ -1,6 +1,6 @@
-package Heaters;
+package Switchers;
 
-public class PlateHeater implements Heater{
+public class PlateHeater implements Switch {
 
     private boolean onOff=false;
 

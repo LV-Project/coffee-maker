@@ -2,31 +2,29 @@ package Sensors;
 
 import Containers.Boiler;
 import Containers.BoilerStates;
-import Containers.Pot;
-import Heaters.BoilerHeater;
-import Heaters.Heater;
+import Switchers.Switch;
 
 public class BoilerSensor implements Sensor {
 
     BoilerStates boilerStates;
     private Boiler boiler;
-    Heater boilerHeater;
+    Switch boilerSwitch;
 
     // TODO CESAR y LUIS BECERRA implementar water level modelo que tendra un water sensor, que pregunta al boiler la media del agua
     // TODO CESAR y LUIS BECERRA TODO implementar valvula de presion de acuerdo al estado brindado por el plate sensor del pot
 
 
-    public BoilerSensor(Boiler boiler, Heater boilerHeater) {
+    public BoilerSensor(Boiler boiler, Switch boilerSwitch) {
         this.boiler = boiler;
-        this. boilerHeater = boilerHeater;
+        this.boilerSwitch = boilerSwitch;
         //this.boilerStates = boilerStates;
     }
 
     public void trigger() {
         if(boiler.getCurrentState().equals(boilerStates.BOILER_NOT_EMPTY)) {
-            boilerHeater.setOn();
+            boilerSwitch.setOn();
         } else if (boiler.getCurrentState().equals(boilerStates.BOILER_EMPTY)) {
-            boilerHeater.setOff();
+            boilerSwitch.setOff();
         }
 
 
