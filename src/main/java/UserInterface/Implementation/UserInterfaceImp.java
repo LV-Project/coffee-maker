@@ -42,7 +42,7 @@ public class UserInterfaceImp implements IUserInterface {
         List<Menu> menuList= _menuManager.getMenus();
         System.out.println("This are the options: ");
         for (Menu varmenu:menuList) {
-           System.out.println(varmenu.getCode()+"");
+           System.out.println(varmenu.getCode()+"\t");
         }
     }
 }
