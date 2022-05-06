@@ -29,7 +29,7 @@ public class BoilerSensor implements Sensor {
 
     @Override
     public boolean status() {
-        return myStatus;
+        return false;
     }
 }
 
