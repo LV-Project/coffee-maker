@@ -11,20 +11,20 @@ public class UserInterfaceImp implements IUserInterface {
     private ComponentManager _componentManager;
     private FastReader _fastReader;
     private MenuManager _menuManager;
-    public UserInterfaceImp(ComponentManager componentManager,MenuManager menuManager) {
-        _componentManager=componentManager;
-        _fastReader=new FastReader();
-        _menuManager=menuManager;
+
+    public UserInterfaceImp(ComponentManager componentManager, MenuManager menuManager) {
+        _componentManager = componentManager;
+        _fastReader = new FastReader();
+        _menuManager = menuManager;
     }
 
     @Override
     public void menu() {
-        System.out.println("Welcome to the Coffee Maker!");
-        System.out.println("Please set up the machine");
-        Command command = _menuManager.getMenus().stream().filter(a->a.getName().equals("SetUpFilter")).findFirst()
-                .orElseThrow(()->new RuntimeException("Command not found")).getCommand();
-        command.execute();
-
+        while (true) {
+            Command command = _menuManager.getMenus().stream().filter(a -> a.getCode() == 0).findFirst()
+                    .orElseThrow(() -> new RuntimeException("Command not found" )).getCommand();
+            command.execute();
+        }
     }
 
     @Override
@@ -39,10 +39,17 @@ public class UserInterfaceImp implements IUserInterface {
 
     @Override
     public void showOptionsForTheUser() {
-        List<Menu> menuList= _menuManager.getMenus();
-        System.out.println("This are the options: ");
-        for (Menu varmenu:menuList) {
-           System.out.println(varmenu.getCode()+"");
+        List<Menu> menuList = _menuManager.getMenus();
+        System.out.println("Type any code that you want to proceed " );
+        System.out.println("This are the options: " );
+        System.out.println("Code Name" );
+        for (Menu varmenu : menuList) {
+            System.out.println(varmenu.getCode() + "    " + varmenu.getName());
         }
+    }
+
+    @Override
+    public MenuManager getMenuManager() {
+        return _menuManager;
     }
 }

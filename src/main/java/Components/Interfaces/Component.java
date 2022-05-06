@@ -6,5 +6,4 @@ public interface Component {
     void activate();
     void deactivate();
     boolean isSetup();
-
 }

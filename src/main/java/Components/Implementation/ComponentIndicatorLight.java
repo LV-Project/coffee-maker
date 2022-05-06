@@ -17,16 +17,16 @@ public class ComponentIndicatorLight implements Component {
     }
     @Override
     public String execute() {
-        return "Turning light on\nCoffee is Ready!!!";
+        return "Coffee is Ready!!!";
     }
     @Override
     public void activate() {
-        System.out.println("Setting up the "+name);
+        System.out.println("Turning light on");
     }
 
     @Override
     public void deactivate() {
-        System.out.println("Disassembling "+name);
+        System.out.println("Turning light off");
         setSetup(false);
     }
     @Override
