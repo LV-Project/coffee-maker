@@ -25,6 +25,6 @@ public class CommandRemoveFilter implements Command {
 
     @Override
     public int getCode() {
-        return 0;
+        return 2;
     }
 }
