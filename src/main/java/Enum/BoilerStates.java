@@ -1,4 +1,4 @@
-package Containers;
+package Enum;
 //posible water level
 public enum BoilerStates {
     BOILER_EMPTY,

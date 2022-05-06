@@ -1,4 +1,4 @@
-package Containers;
+package Model;
 
 public class WaterLevel {
 

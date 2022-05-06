@@ -1,4 +1,4 @@
-package UserInterface.Model;
+package Model;
 
 import UserInterface.Implementation.Command;
 

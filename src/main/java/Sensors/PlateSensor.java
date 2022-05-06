@@ -1,7 +1,7 @@
 package Sensors;
 
-import Containers.Pot;
-import Containers.PotStates;
+import Model.Pot;
+import Enum.PotStates;
 import Containers.PressureValve;
 import Switchers.Switch;
 

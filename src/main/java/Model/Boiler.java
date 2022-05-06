@@ -1,6 +1,7 @@
-package Containers;
+package Model;
 
 import Sensors.WaterSensor;
+import Enum.BoilerStates;
 
 public class Boiler {
     BoilerStates currentState;
@@ -23,7 +24,5 @@ public class Boiler {
     public int getWaterLevel() {
         return waterSensor.getWaterLevel();
     }
-
-
 
 }

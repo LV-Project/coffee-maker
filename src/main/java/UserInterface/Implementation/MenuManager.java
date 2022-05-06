@@ -1,6 +1,6 @@
 package UserInterface.Implementation;
 
-import UserInterface.Model.Menu;
+import Model.Menu;
 
 import java.util.ArrayList;
 import java.util.List;

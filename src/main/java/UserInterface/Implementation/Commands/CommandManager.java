@@ -1,9 +1,9 @@
 package UserInterface.Implementation.Commands;
 
-import Containers.Boiler;
-import Containers.BoilerStates;
-import Containers.Pot;
-import Containers.PotStates;
+import Model.Boiler;
+import Enum.BoilerStates;
+import Model.Pot;
+import Enum.PotStates;
 import UserInterface.IUserInterface;
 import UserInterface.Implementation.Command;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public class CommandManager {
     private List<Command> commandList;
     private IUserInterface _userInterface;
 
-    private final Boiler boiler = new Boiler(BoilerStates.BOILER_EMPTY);
-    private final Pot pot = new Pot(PotStates.WARMER_EMPTY);
+//    private final Boiler boiler = new Boiler(BoilerStates.BOILER_EMPTY);
+//    private final Pot pot = new Pot(PotStates.WARMER_EMPTY);
 
     public CommandManager(IUserInterface userInterface) {
         _userInterface=userInterface;

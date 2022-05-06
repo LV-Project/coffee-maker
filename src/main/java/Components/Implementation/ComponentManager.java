@@ -16,6 +16,9 @@ public class ComponentManager {
         components.add(new ComponentStartButton("StartButton"));
         components.add(new ComponentFilter("Filter"));
         components.add(new ComponentDeliveryPipe("DeliveryPipe"));
+        components.add(new ComponentPlateHeater("PlateHeater"));
+        components.add(new ComponentPressureValve("PressureValve"));
+        components.add(new ComponentBoilerHeater("BoilerHeater"));
     }
     public List<Component> getComponents() {
         return components;

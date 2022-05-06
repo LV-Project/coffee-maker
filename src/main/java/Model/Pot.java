@@ -1,5 +1,5 @@
-package Containers;
-
+package Model;
+import Enum.PotStates;
 public class Pot{
 
     PotStates currentState;

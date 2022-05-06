@@ -2,7 +2,7 @@ package UserInterface.Implementation;
 
 import Components.Implementation.ComponentManager;
 import UserInterface.IUserInterface;
-import UserInterface.Model.Menu;
+import Model.Menu;
 
 import java.util.List;
 

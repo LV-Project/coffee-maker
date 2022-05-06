@@ -1,6 +1,6 @@
 package Sensors;
 
-import Containers.WaterLevel;
+import Model.WaterLevel;
 
 import java.util.Random;
 

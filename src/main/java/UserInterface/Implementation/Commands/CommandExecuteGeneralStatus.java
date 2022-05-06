@@ -1,7 +1,7 @@
 package UserInterface.Implementation.Commands;
 
-import Containers.Boiler;
-import Containers.Pot;
+import Model.Boiler;
+import Model.Pot;
 import UserInterface.Implementation.Command;
 
 public class CommandExecuteGeneralStatus implements Command {

@@ -1,4 +1,4 @@
-package Containers;
+package Enum;
 
  public enum PotStates {
         WARMER_EMPTY,
