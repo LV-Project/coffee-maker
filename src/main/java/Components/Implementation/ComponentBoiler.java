@@ -2,15 +2,16 @@ package Components.Implementation;
 
 import Components.Component;
 
-public class ComponentPressureValve implements Component {
-    private boolean state;
+public class ComponentBoiler implements Component {
     private String name;
-    public ComponentPressureValve(String name){
-        this.name=name;
+    private boolean setup=false;
+
+    public ComponentBoiler(String name) {
+        this.name = name;
     }
     @Override
     public String execute() {
-        return "Pressure valve working";
+        return null;
     }
 
     @Override
@@ -20,18 +21,16 @@ public class ComponentPressureValve implements Component {
 
     @Override
     public void activate() {
-        System.out.println("Pressure Valve open");
-        state=true;
+
     }
 
     @Override
     public void deactivate() {
-        System.out.println("Pressure Valve closed");
-        state=false;
+
     }
 
     @Override
     public boolean isSetup() {
-        return state;
+        return setup;
     }
 }

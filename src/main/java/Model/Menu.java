@@ -1,6 +1,6 @@
 package Model;
 
-import UserInterface.Implementation.Command;
+import UserInterface.Command;
 
 public class Menu {
     private String name;

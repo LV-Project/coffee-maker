@@ -1,6 +1,6 @@
 package Components.Implementation;
 
-import Components.Interfaces.Component;
+import Components.Component;
 
 public class ComponentStartButton implements Component {
     private String name;

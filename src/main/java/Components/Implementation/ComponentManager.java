@@ -1,6 +1,6 @@
 package Components.Implementation;
 
-import Components.Interfaces.Component;
+import Components.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,10 @@ public class ComponentManager {
         components.add(new ComponentPlateHeater("PlateHeater"));
         components.add(new ComponentPressureValve("PressureValve"));
         components.add(new ComponentBoilerHeater("BoilerHeater"));
+        components.add(new ComponentPot("Pot"));
+        components.add(new ComponentPot("Boiler"));
+
+
     }
     public List<Component> getComponents() {
         return components;

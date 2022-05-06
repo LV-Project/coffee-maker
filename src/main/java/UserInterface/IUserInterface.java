@@ -1,8 +1,6 @@
 package UserInterface;
 
 import Components.Implementation.ComponentManager;
-import UserInterface.Implementation.FastReader;
-import UserInterface.Implementation.MenuManager;
 
 public interface IUserInterface {
     void menu();
@@ -10,5 +8,6 @@ public interface IUserInterface {
     ComponentManager getComponentManager();
     void showOptionsForTheUser();
     MenuManager getMenuManager();
+    void print(String text);
 
 }
