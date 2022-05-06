@@ -2,10 +2,7 @@ package Sensors;
 
 import Containers.Boiler;
 import Containers.BoilerStates;
-import Containers.Pot;
-import Heaters.BoilerHeater;
 import Heaters.Heater;
-
 public class BoilerSensor implements Sensor {
 
     BoilerStates boilerStates;
@@ -14,7 +11,6 @@ public class BoilerSensor implements Sensor {
 
     // TODO CESAR y LUIS BECERRA implementar water level modelo que tendra un water sensor, que pregunta al boiler la media del agua
     // TODO CESAR y LUIS BECERRA TODO implementar valvula de presion de acuerdo de acuerdo al estado brindado por el plate sensor del pot
-
 
     public BoilerSensor(Boiler boiler, Heater boilerHeater) {
         this.boiler = boiler;
@@ -29,15 +25,6 @@ public class BoilerSensor implements Sensor {
             boilerHeater.setOff();
         }
 
-
-//        if (myStatus=boiler.getCurrentState().equals(status)) {
-//            myStatus=true;
-//            return true;
-//        } else if (boiler.getCurrentState().equals(status)) {
-//            myStatus=false;
-//            return false;
-//        }
-//        return false;
     }
 
     @Override

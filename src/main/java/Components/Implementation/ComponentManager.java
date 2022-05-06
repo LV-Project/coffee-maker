@@ -4,7 +4,6 @@ import Components.Interfaces.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class ComponentManager {
     private List<Component> components;
     public ComponentManager(){
@@ -27,5 +26,4 @@ public class ComponentManager {
     public Component findByName(String name){
         return components.stream().filter(a->a.getName().equals(name)).findFirst().orElseThrow(()-> new RuntimeException("Component not found"));
     }
-
 }

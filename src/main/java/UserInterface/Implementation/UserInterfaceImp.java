@@ -6,7 +6,6 @@ import UserInterface.Model.Menu;
 
 import java.util.List;
 
-
 public class UserInterfaceImp implements IUserInterface {
     private ComponentManager _componentManager;
     private FastReader _fastReader;

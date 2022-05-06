@@ -1,7 +1,6 @@
 package Components.Implementation;
 
 import Components.Interfaces.Component;
-
 public class ComponentStartButton implements Component {
     private String name;
     private boolean state=false;

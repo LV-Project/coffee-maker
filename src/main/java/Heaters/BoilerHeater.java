@@ -1,7 +1,5 @@
 package Heaters;
-
 public class BoilerHeater implements Heater{
-
     private boolean onOff=false;
 
     public boolean getOnOff() {

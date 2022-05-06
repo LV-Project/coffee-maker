@@ -2,13 +2,11 @@ package Sensors;
 
 import Containers.Pot;
 import Containers.PotStates;
-
 public class PlateSensor implements Sensor {
 
     PotStates potStates;
     Pot pot;
     String status = "";
-
 
     public PlateSensor(Pot pot, PotStates potStates) {
         this.pot = pot;

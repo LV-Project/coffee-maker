@@ -10,7 +10,6 @@ public class ComponentFilter implements Component {
     public ComponentFilter(String name) {
         this.name = name;
     }
-
     @Override
     public String getName() {
         return name;
