@@ -28,10 +28,9 @@ public class CoffeeMaker {
     }
 
     public void initializeMenus(){
-        _menuManager.add("SetUpFilter",_commandManager.findByCode(1),1)
-                .add("DeliveryPipe",_commandManager.findByCode(2),2)
-                .add("IndicatorLight", _commandManager.findByCode(3),3)
-                .add("StartButton", _commandManager.findByCode(4),4)
+        _menuManager.add("Check Coffee-Maker status",_commandManager.findByCode(1),1)
+                .add("Get coffee",_commandManager.findByCode(2),2)
+                .add("Exit", _commandManager.findByCode(3),3)
                 .build();
     }
 }

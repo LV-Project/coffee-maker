@@ -21,11 +21,13 @@ public class CommandSetUpFilter implements Command {
         if(input.equals("")||input.equals("Y")||input.equals("YES")){
             List<Component> var = _userInterface.getComponentManager().getComponents();
             var.stream().filter(a->a.getName().equals("Filter")).findFirst().orElse(null).activate();
+
+
         }
     }
 
     @Override
     public int getCode() {
-        return 1;
+        return 11;
     }
 }

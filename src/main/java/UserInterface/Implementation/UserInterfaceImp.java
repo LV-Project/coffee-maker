@@ -20,10 +20,19 @@ public class UserInterfaceImp implements IUserInterface {
     @Override
     public void menu() {
         System.out.println("Welcome to the Coffee Maker!");
-        System.out.println("Please set up the machine");
-        Command command = _menuManager.getMenus().stream().filter(a->a.getName().equals("SetUpFilter")).findFirst()
-                .orElseThrow(()->new RuntimeException("Command not found")).getCommand();
-        command.execute();
+        showOptionsForTheUser();
+
+        int option= _fastReader.nextInt();
+
+        while(option != 3){
+            Command command = _menuManager.getMenus().stream().filter(a->a.getCode() == option).findFirst()
+                    .orElseThrow(()->new RuntimeException("Command not found")).getCommand();
+            command.execute();
+
+        }
+
+
+
 
     }
 
@@ -42,7 +51,7 @@ public class UserInterfaceImp implements IUserInterface {
         List<Menu> menuList= _menuManager.getMenus();
         System.out.println("This are the options: ");
         for (Menu varmenu:menuList) {
-           System.out.println(varmenu.getCode()+"");
+           System.out.println(varmenu.getCode()+" "+ varmenu.getName());
         }
     }
 }
