@@ -1,6 +1,7 @@
 package Listeners;
 
-import Switchers.Switch;
+import Switchers.*;
+import org.apache.log4j.Logger;
 
 public class BoilerHeaterListener extends Thread{
     // TODO MARTIN GONZALES y LEONARDO VILLALBA una clase que escuche el estado del heater/boiler (todo lo q cambie su estado) y printee en el momento que cambie en un archivo logger.
@@ -9,34 +10,44 @@ public class BoilerHeaterListener extends Thread{
     private boolean off=false;
     Switch bH;
 
+    //intancia del botton
+
+    private static Logger loggerFile = Logger.getLogger("admin");
+    //private static Logger loggerReceipt = Logger.getLogger("file");
+
     public BoilerHeaterListener (Switch bH){
         this.bH = bH;
+        //this.startButton=startbutton
     }
-//    public boolean getOnOff() {
-//        return onOff;
-//    }
-//
-//    public void setOnOff(boolean onOff) {
-//        this.onOff = onOff;
-//    }
-//
-//    public void setOn() {
-//        this.onOff = true;
-//    }
-//
-//    public void setOff() {
-//        this.onOff = false;
-//    }
 
     @Override
     public void run(){
-        if(bH.getOnOff() && !on){
-            System.out.println("Heating Boiler....");
-            on=true;
-        } else if(bH.getOnOff() && !off){
-            System.out.println("Heating Boiler Off!");
-            off=true;
+        //while argument depends on the start button status
+        while(true) {
+
+            if (bH.getOnOff() && !on) {
+
+                loggerFile.info("Boiler Heater ON");
+                System.out.println("Heating Boiler....");
+                on = true;
+                off= false;
+            }
+
+            if (!bH.getOnOff() && !off) {
+
+                loggerFile.info("Boiler Heater OFF");
+                System.out.println("Heating Boiler Off!");
+                off = true;
+                on= false;
+            }
+
+                try {
+                    Thread.sleep(950);
+                } catch(InterruptedException e){
+                }
+
         }
     }
+
 
 }

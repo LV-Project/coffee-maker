@@ -20,27 +20,14 @@ public class BoilerSensor implements Sensor {
         //this.boilerStates = boilerStates;
     }
 
+    @Override
     public void trigger() {
-        if(boiler.getCurrentState().equals(boilerStates.BOILER_NOT_EMPTY)) {
+        if (boiler.getCurrentState().equals(boilerStates.BOILER_NOT_EMPTY)) {
             boilerSwitch.setOn();
         } else if (boiler.getCurrentState().equals(boilerStates.BOILER_EMPTY)) {
             boilerSwitch.setOff();
         }
-
-
-//        if (myStatus=boiler.getCurrentState().equals(status)) {
-//            myStatus=true;
-//            return true;
-//        } else if (boiler.getCurrentState().equals(status)) {
-//            myStatus=false;
-//            return false;
-//        }
-//        return false;
     }
 
-    @Override
-    public boolean status() {
-        return false;
-    }
 }
 
