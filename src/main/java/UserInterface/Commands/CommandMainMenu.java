@@ -13,8 +13,9 @@ public class CommandMainMenu implements Command {
     }
     @Override
     public void execute() {
-        _brewController.get_listenerWaterSensor().getWaterSensor().checkWaterLevel();
+
         _userInterface.getComponentManager().findByName("StartButton").deactivate();
+        _brewController.get_listenerWaterSensor().getWaterSensor().checkWaterLevel();
         System.out.println("Welcome to the Coffee Maker!");
         Command command = _userInterface.getMenuManager().getMenus().stream().filter(a->a.getCode()==7).findFirst()
                 .orElseThrow(()->new RuntimeException("Command not found")).getCommand();

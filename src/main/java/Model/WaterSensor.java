@@ -28,10 +28,10 @@ public class WaterSensor {
         if(waterLevel>0){
             setBoilerStates(BoilerStates.BOILER_NOT_EMPTY);
             if(waterLevel>1){
-                System.out.println("you can still make"+waterLevel+" cups");
+                System.out.println("you can still make "+waterLevel+" cups");
             }
             else{
-                System.out.println("you can still make"+waterLevel+" cup");
+                System.out.println("you can still make "+waterLevel+" cup");
             }
         }
 

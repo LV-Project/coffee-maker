@@ -3,9 +3,10 @@ package Controller;
 import Listeners.ListenerComponentManager;
 import Listeners.ListenerPlateSensor;
 import Listeners.ListenerWaterSensor;
+import Model.WaterSensor;
 import UserInterface.IUserInterface;
 import UserInterface.Command;
-
+import Enum.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,10 +22,10 @@ public class BrewController {
     public BrewController(IUserInterface userInterface, ListenerComponentManager listenerComponentManager, ListenerPlateSensor listenerPlateSensor, ListenerWaterSensor listenerWaterSensor) {
         _userInterface = userInterface;
         _listenerComponentManager = listenerComponentManager;
-        _listenerPlateSensor=listenerPlateSensor;
-        _listenerWaterSensor=listenerWaterSensor;
+        _listenerPlateSensor = listenerPlateSensor;
+        _listenerWaterSensor = listenerWaterSensor;
         _booleanArrayProcess = new boolean[]{true, true, true, true, true, false};
-        _stringArrayProcess = new String[]{"Filter", "StartButton", "PressureValve", "PlateHeater","DeliveryPipe","BoilerHeater"};
+        _stringArrayProcess = new String[]{"Filter", "StartButton", "PressureValve", "PlateHeater", "DeliveryPipe", "BoilerHeater"};
 
     }
 
@@ -53,34 +54,71 @@ public class BrewController {
     }
 
     public boolean checkListeners(int currentCodeProcess, String name) {
-        if(name.equals("WaterSensor")){
-            if(!_listenerWaterSensor.ready()){
-              return false;
-            }
-        }else if(name.equals("PlateSensor")){
-            if(!_listenerPlateSensor.ready()){
+        if (name.equals("WaterSensor")) {
+            if (!_listenerWaterSensor.ready()) {
                 return false;
             }
-        }
-        else if (_listenerComponentManager.findByName(name).statusChange() != _booleanArrayProcess[currentCodeProcess]) {
+        } else if (name.equals("PlateSensor")) {
+            if (!_listenerPlateSensor.ready()) {
+                return false;
+            }
+        } else if (_listenerComponentManager.findByName(name).statusChange() != _booleanArrayProcess[currentCodeProcess]) {
             return false;
         }
         return true;
     }
-    public Set<String> needToSetUp(){
-        Set<String> result=new HashSet<>();
-        for (int i = 0; i < _stringArrayProcess.length-1; i++) {
-            if(!_listenerComponentManager.findByName(_stringArrayProcess[i]).statusChange()){
-                result.add(_stringArrayProcess[i]+" not set up");
+
+    public Set<String> needToSetUp() {
+        Set<String> result = new HashSet<>();
+        for (int i = 0; i < _stringArrayProcess.length - 1; i++) {
+            if (!_listenerComponentManager.findByName(_stringArrayProcess[i]).statusChange()) {
+                result.add(_stringArrayProcess[i] + " not set up");
             }
         }
-        if(!_listenerPlateSensor.ready()){
+        if (!_listenerPlateSensor.ready()) {
             result.add("Pot not set up");
         }
-        if(!_listenerWaterSensor.ready()){
+        if (!_listenerWaterSensor.ready()) {
             result.add("Boiler not set up");
         }
         return result;
+    }
+
+    public Set<String> checkStatusProcess() {
+        Set<String> states = new HashSet<>();
+        for (int i = 0; i < _stringArrayProcess.length - 1; i++) {
+            if (_listenerComponentManager.findByName(_stringArrayProcess[i]).statusChange()) {
+                states.add(_stringArrayProcess[i]+" Activated");
+            }
+            else{
+                states.add(_stringArrayProcess[i]+" Deactivated");
+            }
+        }
+        states.add(_listenerPlateSensor.getPlateSensor().getPlateWarmerStates() + "");
+        states.add(_listenerWaterSensor.getWaterSensor().getBoilerStates() + "");
+        return states;
+    }
+    public boolean checkAllProcessToContinue(){
+        boolean states = true;
+        for (int i = 0; i < _stringArrayProcess.length - 1; i++) {
+            if (_listenerComponentManager.findByName(_stringArrayProcess[i]).statusChange()) {
+                states= states&&true;
+            }
+            else if(!_stringArrayProcess[i].equals("StartButton")){
+                states= states&&false;
+            }
+        }
+        if (_listenerPlateSensor.getPlateSensor().getPlateWarmerStates().equals(PlateWarmerStates.POT_NOT_EMPTY)) {
+            states= states&&true;
+        }
+        else {
+            states= states&&false;
+        }if(_listenerWaterSensor.getWaterSensor().getBoilerStates().equals(BoilerStates.BOILER_NOT_EMPTY)){
+            states= states&&true;
+        }else{
+            states= states&&false;
+        }
+        return states;
     }
 
     public ListenerComponentManager get_listenerComponentManager() {

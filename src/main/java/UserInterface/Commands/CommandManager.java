@@ -27,6 +27,7 @@ public class CommandManager {
         commandList.add(new CommandSetUpPressureValve(_userInterface));
         commandList.add(new CommandSetUpPot(_brewController,_userInterface));
         commandList.add(new CommandRemoveFilter(_userInterface));
+        commandList.add(new CommandRemovePot(_userInterface,_brewController));
         commandList.add(new CommandExecuteFilter(_userInterface));
         commandList.add(new CommandSetUpPlateSensor(_userInterface,_brewController));
         commandList.add(new CommandSetUpDeliveryPipe(_userInterface));
@@ -35,7 +36,7 @@ public class CommandManager {
         commandList.add(new CommandTurnOnIndicatorLight(_userInterface));
         commandList.add(new CommandTurnOffIndicatorLight(_userInterface));
         commandList.add(new CommandExecuteIndicatorLight(_userInterface));
-        commandList.add(new CommandTurnOnStartButton(_userInterface));
+        commandList.add(new CommandTurnOnStartButton(_userInterface,_brewController));
         commandList.add(new CommandTurnOffStartButton(_userInterface));
         commandList.add(new CommandExecuteStartButton(_userInterface));
         commandList.add(new CommandMainMenu(_userInterface,_brewController));

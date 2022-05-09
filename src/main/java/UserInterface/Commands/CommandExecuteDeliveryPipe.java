@@ -19,6 +19,6 @@ public class CommandExecuteDeliveryPipe implements Command {
 
     @Override
     public int getCode() {
-        return 6;
+        return -1;
     }
 }
