@@ -19,6 +19,6 @@ public class CommandTurnOffIndicatorLight implements Command {
 
     @Override
     public int getCode() {
-        return 8;
+        return -1;
     }
 }

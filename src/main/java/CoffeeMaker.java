@@ -64,6 +64,9 @@ public class CoffeeMaker {
                 .add("Set up pot",_commandManager.findByCode(5),5)
                 .add("Remove pot",_commandManager.findByCode(6),6)
                 .add("Wait Menu",_commandManager.findByCode(7),7)
+                .add("Set up Delivery Pipe",_commandManager.findByCode(8),8)
+                .add("Set up Plate Heater",_commandManager.findByCode(9),9)
+                .add("Turn on Indicator Light",_commandManager.findByCode(10),10)
                 .build();
     }
 }

@@ -13,9 +13,16 @@ public class CommandWaitMenu implements Command {
     }
     @Override
     public void execute() {
-        _userInterface.print(_brewController.needToSetUp().toString());
-        _userInterface.showOptionsForTheUser();
-        System.out.println("Please set up the machine");
+        if(!_brewController.needToSetUp().isEmpty()){
+            _userInterface.print(_brewController.needToSetUp().toString());
+            _userInterface.showOptionsForTheUser();
+            System.out.println("Please set up the machine");
+        }else{
+            System.out.println("Coffee is ready");
+            Command command = _userInterface.getMenuManager().getMenus().stream().filter(a -> a.getCode() == 10).findFirst()
+                    .orElseThrow(() -> new RuntimeException("Command not found")).getCommand();
+            command.execute();
+        }
         int commandCode = _userInterface.getFastReader().nextInt();
         Command command = _userInterface.getMenuManager().getMenus().stream().filter(a -> a.getCode() == commandCode).findFirst()
                 .orElseThrow(() -> new RuntimeException("Command not found")).getCommand();

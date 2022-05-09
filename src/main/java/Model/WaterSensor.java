@@ -20,6 +20,22 @@ public class WaterSensor {
             setBoilerStates(BoilerStates.BOILER_NOT_EMPTY);
         }
     }
+    public void checkWaterLevel(){
+        if(waterLevel<=0){
+            boilerStates=BoilerStates.BOILER_EMPTY;
+            System.out.println("Need more water!");
+        }
+        if(waterLevel>0){
+            setBoilerStates(BoilerStates.BOILER_NOT_EMPTY);
+            if(waterLevel>1){
+                System.out.println("you can still make"+waterLevel+" cups");
+            }
+            else{
+                System.out.println("you can still make"+waterLevel+" cup");
+            }
+        }
+
+    }
 
     public BoilerStates getBoilerStates() {
         return boilerStates;

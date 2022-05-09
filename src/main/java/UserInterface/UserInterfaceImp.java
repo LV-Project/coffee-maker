@@ -45,7 +45,9 @@ public class UserInterfaceImp implements IUserInterface {
         System.out.println("These are the options: " );
         System.out.println("Code Name" );
         for (Menu varmenu : menuList) {
-            System.out.println(varmenu.getCode() + "    " + varmenu.getName());
+            if(varmenu.getCode()!=0&&varmenu.getCode()!=7) {
+                System.out.println(varmenu.getCode() + "    " + varmenu.getName());
+            }
         }
     }
 

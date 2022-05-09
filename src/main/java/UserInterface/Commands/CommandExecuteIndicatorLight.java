@@ -19,6 +19,6 @@ public class CommandExecuteIndicatorLight implements Command {
 
     @Override
     public int getCode() {
-        return 9;
+        return -1;
     }
 }

@@ -18,6 +18,6 @@ public class CommandSetUpDeliveryPipe implements Command {
     }
     @Override
     public int getCode() {
-        return -1;
+        return 8;
     }
 }

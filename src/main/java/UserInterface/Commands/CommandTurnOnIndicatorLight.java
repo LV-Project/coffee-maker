@@ -19,6 +19,6 @@ public class CommandTurnOnIndicatorLight implements Command {
 
     @Override
     public int getCode() {
-        return 7;
+        return 10;
     }
 }

@@ -12,6 +12,7 @@ public class ComponentDeliveryPipe implements Component {
     @Override
     public void activate() {
         System.out.println("Setting up the "+name);
+        setSetup(true);
     }
 
     @Override
