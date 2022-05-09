@@ -1,0 +1,11 @@
+2022-05-05 10:43:23.331 INFO Thread-0 admin - Plate Heater OFF
+2022-05-05 10:43:23.331 INFO Thread-1 admin - Boiler Heater ON
+2022-05-05 10:43:23.332 INFO Thread-2 admin - Valve is open, no coffee is coming
+2022-05-05 10:43:23.332 INFO Thread-1 admin - Boiler Heater OFF
+2022-05-05 10:43:26.185 INFO Thread-1 admin - Boiler Heater ON
+2022-05-05 10:43:26.258 INFO Thread-0 admin - Plate Heater ON
+2022-05-05 10:43:26.319 INFO Thread-2 admin - Valve is close, coffee is coming
+2022-05-05 10:43:28.087 INFO Thread-1 admin - Boiler Heater OFF
+2022-05-05 10:43:28.212 INFO Thread-0 admin - Plate Heater OFF
+2022-05-05 10:43:28.311 INFO Thread-2 admin - Valve is open, no coffee is coming
+2022-05-05 20:26:37.160 INFO main admin - Boiler Heater OFF
